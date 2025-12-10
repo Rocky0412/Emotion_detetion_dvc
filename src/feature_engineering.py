@@ -8,7 +8,7 @@ def feature_engineering(path:str):
     train_path=os.path.join(path,'train.csv')
     test_df=pd.read_csv(test_path)
     train_df=pd.read_csv(train_path)
-    vectorizer=CountVectorizer()
+    vectorizer=CountVectorizer(max_features=100)
     #apply bag of words
     X_train=vectorizer.fit_transform(train_df['content'].fillna("").values)
     X_test=vectorizer.transform(test_df['content'].fillna("").values)
