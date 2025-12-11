@@ -3,6 +3,16 @@ import pandas as pd
 import os
 from sklearn.ensemble import GradientBoostingClassifier
 import pickle
+import yaml
+
+#load parameter yaml
+with open('params.yaml','r') as f:
+    parameter=yaml.safe_load(f)
+
+#Parameters
+
+nestimator=parameter['model_building']['n_estimator']
+learning_rate=parameter['model_building']['learning_rate']
 
 # Load dataset
 df = pd.read_csv('./data/features/train_bow.csv')
@@ -12,7 +22,7 @@ xtrain = df.iloc[:, 0:-1].values
 ytrain = df.iloc[:, -1].values
 
 # Train Model
-gbmodel = GradientBoostingClassifier()
+gbmodel = GradientBoostingClassifier(n_estimators=nestimator,learning_rate=learning_rate)
 gbmodel.fit(xtrain, ytrain)
 
 # Save model

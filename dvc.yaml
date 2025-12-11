@@ -3,6 +3,8 @@ stages:
     cmd: python3 src/data_ingestion.py
     deps:
     - src/data_ingestion.py
+    params:
+    - data_ingestion
     outs:
     - data/raw
   data_preprocessing:
@@ -17,6 +19,8 @@ stages:
     deps:
     - data/processed
     - src/feature_engineering.py
+    params:
+    - feature_engineering
     outs:
     - data/features
 
@@ -25,6 +29,8 @@ stages:
     deps:
     - data/features
     - src/model_building.py
+    params:
+    - model_building
     outs:
     - models
   model_evaluation:

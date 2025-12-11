@@ -5,18 +5,26 @@ import os
 import requests
 import pandas as pd
 from io import StringIO
+import yaml
+
+with open('params.yaml','r') as f:
+    parameter=yaml.safe_load(f)
 
 def load_data(url:str):
+
     r = requests.get(url)
     data_url = StringIO(r.text)
     df = pd.read_csv(data_url)
+
     df.drop(columns=['tweet_id'],inplace=True)
     final_df=df[df['sentiment'].isin(['happiness', 'sadness'])].copy()
     final_df['sentiment'] = final_df['sentiment'].map({'happiness': 1, 'sadness': 0})
     final_df = final_df.infer_objects(copy=False)
-    train_data, test_data = train_test_split(final_df, test_size=0.2, random_state=42)
+
+    train_data, test_data = train_test_split(final_df, test_size=parameter['data_ingestion']['test_size'], random_state=42)
     data_path=os.path.join("data","raw")
     os.makedirs(data_path,exist_ok=True)
+
     train_data.to_csv(os.path.join(data_path,'train.csv'))
     test_data.to_csv(os.path.join(data_path,'test.csv'))
     
