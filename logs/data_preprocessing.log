@@ -1,0 +1,12 @@
+2025-12-11 16:55:11,658 - INFO - Starting data preprocessing script
+2025-12-11 16:55:11,863 - INFO - Downloaded NLTK dependencies successfully
+2025-12-11 16:55:11,865 - INFO - Processing file: data/raw/train.csv
+2025-12-11 16:55:11,872 - INFO - Loaded file: train.csv with 8299 rows
+2025-12-11 16:55:11,872 - INFO - Starting text normalization
+2025-12-11 16:55:12,779 - INFO - Completed text normalization
+2025-12-11 16:55:12,779 - INFO - Processing file: data/raw/test.csv
+2025-12-11 16:55:12,780 - INFO - Loaded file: test.csv with 2075 rows
+2025-12-11 16:55:12,780 - INFO - Starting text normalization
+2025-12-11 16:55:12,805 - INFO - Completed text normalization
+2025-12-11 16:55:12,811 - INFO - Saved processed train to data/processed/train.csv
+2025-12-11 16:55:12,811 - INFO - Saved processed test to data/processed/test.csv

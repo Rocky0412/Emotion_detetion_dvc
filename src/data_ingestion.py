@@ -1,37 +1,114 @@
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
 import os
 import requests
+import yaml
 import pandas as pd
 from io import StringIO
-import yaml
+from sklearn.model_selection import train_test_split
+import logging
 
-with open('params.yaml','r') as f:
-    parameter=yaml.safe_load(f)
-
-def load_data(url:str):
-
-    r = requests.get(url)
-    data_url = StringIO(r.text)
-    df = pd.read_csv(data_url)
-
-    df.drop(columns=['tweet_id'],inplace=True)
-    final_df=df[df['sentiment'].isin(['happiness', 'sadness'])].copy()
-    final_df['sentiment'] = final_df['sentiment'].map({'happiness': 1, 'sadness': 0})
-    final_df = final_df.infer_objects(copy=False)
-
-    train_data, test_data = train_test_split(final_df, test_size=parameter['data_ingestion']['test_size'], random_state=42)
-    data_path=os.path.join("data","raw")
-    os.makedirs(data_path,exist_ok=True)
-
-    train_data.to_csv(os.path.join(data_path,'train.csv'))
-    test_data.to_csv(os.path.join(data_path,'test.csv'))
-    
+# Ensure logs directory exists
+os.makedirs("logs", exist_ok=True)
+# --------------------------
+# Configure Logging
+# --------------------------
+logging.basicConfig(
+    filename="logs/data_ingestion.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 
 
-data_url = 'https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv'
-load_data(data_url)
+# --------------------------
+# Load parameters
+# --------------------------
+try:
+    with open("params.yaml", "r") as f:
+        parameter = yaml.safe_load(f)
+    logging.info("Successfully loaded params.yaml")
+except Exception as e:
+    logging.error(f"Error loading params.yaml: {e}")
+    raise
+
+
+def load_data(url: str) -> None:
+    """Download dataset, clean, split, and save to data/raw with logging & exceptions."""
+
+    try:
+        logging.info(f"Starting data download from {url}")
+
+        response = requests.get(url)
+        response.raise_for_status()  # Raise error if downloading fails
+        logging.info("Data downloaded successfully")
+
+        data_stream = StringIO(response.text)
+        df = pd.read_csv(data_stream)
+
+        # --------------------------
+        # Data Cleaning
+        # --------------------------
+        if "tweet_id" in df.columns:
+            df.drop(columns=["tweet_id"], inplace=True)
+            logging.info("Dropped 'tweet_id' column")
+
+        before_rows = len(df)
+        df = df[df["sentiment"].isin(["happiness", "sadness"])].copy()
+        after_rows = len(df)
+        logging.info(f"Filtered sentiment classes: {before_rows} → {after_rows} rows")
+
+        df["sentiment"] = df["sentiment"].map({"happiness": 1, "sadness": 0})
+        df = df.infer_objects(copy=False)
+
+        # --------------------------
+        # Train-test split
+        # --------------------------
+        test_size = parameter["data_ingestion"]["test_size"]
+        train_data, test_data = train_test_split(
+            df, test_size=test_size, random_state=42
+        )
+        logging.info(f"Split data: train={len(train_data)}, test={len(test_data)}")
+
+        # --------------------------
+        # Save files
+        # --------------------------
+        data_path = os.path.join("data", "raw")
+        os.makedirs(data_path, exist_ok=True)
+
+        train_path = os.path.join(data_path, "train.csv")
+        test_path = os.path.join(data_path, "test.csv")
+
+        train_data.to_csv(train_path, index=False)
+        test_data.to_csv(test_path, index=False)
+
+        logging.info(f"Saved train.csv to {train_path}")
+        logging.info(f"Saved test.csv to {test_path}")
+
+        print("Data ingestion completed successfully.")
+
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Network error while downloading data: {e}")
+        print("Error: Could not download the dataset. Check logs.")
+        raise
+
+    except FileNotFoundError as e:
+        logging.error(f"File handling error: {e}")
+        print("Error: File operation failed. Check logs.")
+        raise
+
+    except KeyError as e:
+        logging.error(f"Missing required column: {e}")
+        print("Error: Column missing in dataset. Check logs.")
+        raise
+
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
+        print("Error occurred during data ingestion. Check logs.")
+        raise
+
+
+if __name__ == "__main__":
+    DATA_URL = "https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv"
+    load_data(DATA_URL)
+
 
 

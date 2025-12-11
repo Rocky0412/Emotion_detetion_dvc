@@ -1,8 +1,8 @@
-import pickle
-import numpy as np
-import pandas as pd
-import yaml
 import os
+import pickle
+import yaml
+import logging
+import pandas as pd
 from sklearn.metrics import (
     precision_score,
     accuracy_score,
@@ -10,42 +10,113 @@ from sklearn.metrics import (
     roc_auc_score
 )
 
-# Load model
-model_path = './models/emotion_model.pkl'
-data_path = './data/features/test_bow.csv'
+# -----------------------------
+# LOGGING SETUP
+# -----------------------------
+os.makedirs("logs", exist_ok=True)
 
-with open(model_path, 'rb') as f:
-    gbclassifier = pickle.load(f)
+logging.basicConfig(
+    filename="logs/model_evaluation.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
-# Load test data
-test_df = pd.read_csv(data_path)
+logging.info("Model evaluation script started.")
 
-X_test = test_df.iloc[:, 0:-1]
-y_test = test_df.iloc[:, -1]
 
-# Predictions
-y_pred = gbclassifier.predict(X_test)
+def load_model(path="./models/emotion_model.pkl"):
+    try:
+        logging.info(f"Loading model from: {path}")
+        with open(path, "rb") as f:
+            model = pickle.load(f)
+        logging.info("Model loaded successfully")
+        return model
+    except FileNotFoundError:
+        logging.error(f"Model file not found: {path}")
+        raise
+    except Exception as e:
+        logging.error(f"Error loading model: {e}")
+        raise
 
-# Metrics
-accuracy = accuracy_score(y_test, y_pred)
-precision = precision_score(y_test, y_pred, average='weighted')
-recall = recall_score(y_test, y_pred, average='weighted')
-roc_auc = roc_auc_score(y_test, gbclassifier.predict_proba(X_test)[:, 1])
 
-metrics = {
-    'accuracy': float(accuracy),
-    'precision': float(precision),
-    'recall': float(recall),
-    'roc_auc_score': float(roc_auc)
-}
+def load_test_data(path="./data/features/test_bow.csv"):
+    try:
+        logging.info(f"Loading test data from: {path}")
+        df = pd.read_csv(path)
+        if df.shape[1] < 2:
+            raise ValueError("Test dataset must contain features and target label.")
+        logging.info(f"Test data loaded with {len(df)} rows")
+        return df
+    except FileNotFoundError:
+        logging.error(f"Test file not found: {path}")
+        raise
+    except Exception as e:
+        logging.error(f"Error loading test data: {e}")
+        raise
 
-# Save metrics
-metrics_path = os.path.join('evaluation', 'metrics.yaml')
-os.makedirs(os.path.dirname(metrics_path), exist_ok=True)
 
-with open(metrics_path, 'w') as f:
-    yaml.dump(metrics, f)
+def evaluate_model(model, X, y):
+    try:
+        logging.info("Starting model evaluation")
+        y_pred = model.predict(X)
 
-print("Metrics saved to", metrics_path)
+        # Compute metrics
+        accuracy = accuracy_score(y, y_pred)
+        precision = precision_score(y, y_pred, average="weighted")
+        recall = recall_score(y, y_pred, average="weighted")
+
+        # ROC-AUC (binary only)
+        if hasattr(model, "predict_proba") and y.nunique() == 2:
+            roc_auc = roc_auc_score(y, model.predict_proba(X)[:, 1])
+        else:
+            roc_auc = None
+            logging.warning("ROC-AUC not computed (non-binary labels or missing predict_proba)")
+
+        metrics = {
+            "accuracy": float(accuracy),
+            "precision": float(precision),
+            "recall": float(recall),
+            "roc_auc_score": float(roc_auc) if roc_auc is not None else None,
+        }
+
+        logging.info(f"Evaluation metrics: {metrics}")
+        return metrics
+
+    except Exception as e:
+        logging.error(f"Error during evaluation: {e}")
+        raise
+
+
+def save_metrics(metrics, path="./evaluation/metrics.yaml"):
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as f:
+            yaml.dump(metrics, f)
+        logging.info(f"Metrics saved successfully at {path}")
+        print(f"Metrics saved to {path}")
+    except Exception as e:
+        logging.error(f"Error saving metrics: {e}")
+        raise
+
+
+def main():
+    try:
+        model = load_model()
+        test_df = load_test_data()
+
+        X_test = test_df.iloc[:, :-1]
+        y_test = test_df.iloc[:, -1]
+
+        metrics = evaluate_model(model, X_test, y_test)
+        save_metrics(metrics)
+
+    except Exception as e:
+        logging.error(f"Fatal error in model evaluation pipeline: {e}")
+        print("Model evaluation failed. Check logs for details.")
+        raise
+
+
+if __name__ == "__main__":
+    main()
 
 

@@ -1,0 +1,10 @@
+2025-12-11 16:55:14,563 - INFO - Model building script started.
+2025-12-11 16:59:22,708 - INFO - Model building script started.
+2025-12-11 16:59:22,708 - INFO - Loaded parameters from params.yaml successfully
+2025-12-11 16:59:22,708 - INFO - Loading training data from: ./data/features/train_bow.csv
+2025-12-11 16:59:22,723 - INFO - Loaded training dataframe with 8299 rows
+2025-12-11 16:59:22,723 - INFO - Preparing features and labels
+2025-12-11 16:59:22,723 - INFO - Training dataset: X_shape=(8299, 100), y_length=8299
+2025-12-11 16:59:22,723 - INFO - Initializing GradientBoostingClassifier (n_estimators=100, learning_rate=0.1)
+2025-12-11 16:59:23,076 - INFO - Model training completed successfully
+2025-12-11 16:59:23,078 - INFO - Model saved successfully at models/emotion_model.pkl

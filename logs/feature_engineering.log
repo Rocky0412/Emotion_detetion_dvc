@@ -1,0 +1,9 @@
+2025-12-11 16:55:13,564 - INFO - Feature engineering script started.
+2025-12-11 16:55:13,564 - INFO - Starting feature engineering on: ./data/processed
+2025-12-11 16:55:13,564 - INFO - Loading train file: ./data/processed/train.csv
+2025-12-11 16:55:13,568 - INFO - Loading test file: ./data/processed/test.csv
+2025-12-11 16:55:13,569 - INFO - Initialized CountVectorizer with max_features=100
+2025-12-11 16:55:13,569 - INFO - Fitting vectorizer on training data...
+2025-12-11 16:55:13,598 - INFO - Transforming test data...
+2025-12-11 16:55:13,713 - INFO - Saved BOW train dataset: data/features/train_bow.csv
+2025-12-11 16:55:13,713 - INFO - Saved BOW test dataset: data/features/test_bow.csv

@@ -1,0 +1,8 @@
+2025-12-11 16:55:09,594 - INFO - Successfully loaded params.yaml
+2025-12-11 16:55:09,594 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-11 16:55:10,714 - INFO - Data downloaded successfully
+2025-12-11 16:55:10,767 - INFO - Dropped 'tweet_id' column
+2025-12-11 16:55:10,770 - INFO - Filtered sentiment classes: 40000 → 10374 rows
+2025-12-11 16:55:10,771 - INFO - Split data: train=8299, test=2075
+2025-12-11 16:55:10,782 - INFO - Saved train.csv to data/raw/train.csv
+2025-12-11 16:55:10,782 - INFO - Saved test.csv to data/raw/test.csv
