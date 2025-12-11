@@ -49,3 +49,21 @@ stages:
       md5: 7e996635e52463ac61f436365f19443d.dir
       size: 2145800
       nfiles: 2
+  model_building:
+    cmd: python3 src/model_building.py
+    deps:
+    - path: data/features
+      hash: md5
+      md5: 7e996635e52463ac61f436365f19443d.dir
+      size: 2145800
+      nfiles: 2
+    - path: src/model_building.py
+      hash: md5
+      md5: 747a17cc2c2c3f2cbb5ebfd5aa59b2aa
+      size: 572
+    outs:
+    - path: models
+      hash: md5
+      md5: b432448b17f30eeaa90d765059108528.dir
+      size: 135872
+      nfiles: 1
