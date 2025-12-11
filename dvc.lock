@@ -67,3 +67,20 @@ stages:
       md5: b432448b17f30eeaa90d765059108528.dir
       size: 135872
       nfiles: 1
+  model_evaluation:
+    cmd: python3 src/model_evaluation.py
+    deps:
+    - path: models
+      hash: md5
+      md5: b432448b17f30eeaa90d765059108528.dir
+      size: 135872
+      nfiles: 1
+    - path: src/model_evaluation.py
+      hash: md5
+      md5: 763edd54eeb5b3e7373d02ee0d4ea654
+      size: 1151
+    outs:
+    - path: evaluation/metrics.yaml
+      hash: md5
+      md5: 5cadf33c9806a4570a90d899f75c2e8f
+      size: 120

@@ -19,6 +19,7 @@ stages:
     - src/feature_engineering.py
     outs:
     - data/features
+
   model_building:
     cmd: python3 src/model_building.py
     deps:
@@ -26,3 +27,11 @@ stages:
     - src/model_building.py
     outs:
     - models
+  model_evaluation:
+    cmd: python3 src/model_evaluation.py
+    deps:
+    - models
+    - src/model_evaluation.py
+    metrics:
+    - evaluation/metrics.yaml:
+        cache: false
