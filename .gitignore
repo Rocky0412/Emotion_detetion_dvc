@@ -1,7 +1,16 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
-/url_data/*.csv
+# Python venv
+myenv/
+venv/
 
-/models
-/data
-/logs
-/Storage
+# Data
+data/
+url_data/*.csv
+Storage/
+logs/
+
+# Model files
+models/
+
+# DVC cache (optional)
+.cache/
