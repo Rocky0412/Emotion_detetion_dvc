@@ -1,0 +1,4 @@
+[core]
+    remote = data_version
+['remote "data_version"']
+    url = /Users/rocky/Desktop/MLops/Emotion Detection/Data version
