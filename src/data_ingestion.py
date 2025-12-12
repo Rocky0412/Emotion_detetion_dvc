@@ -6,6 +6,7 @@ from io import StringIO
 from sklearn.model_selection import train_test_split
 import logging
 
+
 # Ensure logs directory exists
 os.makedirs("logs", exist_ok=True)
 # --------------------------
@@ -41,12 +42,13 @@ def load_data(url: str) -> None:
         response.raise_for_status()  # Raise error if downloading fails
         logging.info("Data downloaded successfully")
 
-        data_stream = StringIO(response.text)"""
-        df = pd.read_csv(url)
+        data_stream = StringIO(response.text)
+        df = pd.read_csv(data_stream)
 
-        """ path_url=os.path.join("data","url")
-        os.makedirs(path_url,exist_ok=True)
+        
+        path_url='url_data'
         df.to_csv(os.path.join(path_url,"emotion.csv")) """
+        df = pd.read_csv(url)
 
 
         
@@ -113,7 +115,7 @@ def load_data(url: str) -> None:
 
 
 if __name__ == "__main__":
-    DATA_URL = "data/url/emotion.csv"
+    DATA_URL = "url_data/emotion.csv"
     #DATA_URL = "https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv"
 
     load_data(DATA_URL)
