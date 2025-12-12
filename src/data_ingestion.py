@@ -48,7 +48,10 @@ def load_data(url: str) -> None:
         
         path_url='url_data'
         df.to_csv(os.path.join(path_url,"emotion.csv")) """
-        df = pd.read_csv(url)
+
+
+        df = pd.read_csv(url).sample(1000)
+
 
 
         
