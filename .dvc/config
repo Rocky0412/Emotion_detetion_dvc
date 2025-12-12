@@ -1,4 +1,1 @@
-[core]
-    remote = remote storage
-['remote "remote storage"']
-    url = /Users/rocky/Desktop/MLops/Emotion Detection/Data Storage
+
