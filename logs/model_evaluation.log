@@ -6,3 +6,11 @@
 2025-12-11 16:59:23,776 - INFO - Starting model evaluation
 2025-12-11 16:59:23,783 - INFO - Evaluation metrics: {'accuracy': 0.7026506024096385, 'precision': 0.7177145966081216, 'recall': 0.7026506024096385, 'roc_auc_score': 0.7755316479226693}
 2025-12-11 16:59:23,783 - INFO - Metrics saved successfully at ./evaluation/metrics.yaml
+2025-12-12 15:25:37,863 - INFO - Model evaluation script started.
+2025-12-12 15:25:37,864 - INFO - Loading model from: ./models/emotion_model.pkl
+2025-12-12 15:25:37,959 - INFO - Model loaded successfully
+2025-12-12 15:25:37,959 - INFO - Loading test data from: ./data/features/test_bow.csv
+2025-12-12 15:25:37,963 - INFO - Test data loaded with 2075 rows
+2025-12-12 15:25:37,963 - INFO - Starting model evaluation
+2025-12-12 15:25:37,971 - INFO - Evaluation metrics: {'accuracy': 0.7074698795180723, 'precision': 0.7163574615657132, 'recall': 0.7074698795180723, 'roc_auc_score': 0.7807166093503113}
+2025-12-12 15:25:37,972 - INFO - Metrics saved successfully at ./evaluation/metrics.yaml

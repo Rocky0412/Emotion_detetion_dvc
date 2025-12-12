@@ -50,7 +50,7 @@ stages:
     params:
       params.yaml:
         feature_engineering:
-          max_features: 100
+          max_features: 200
     outs:
     - path: data/features
       hash: md5
@@ -72,21 +72,21 @@ stages:
     params:
       params.yaml:
         model_building:
-          n_estimator: 100
+          n_estimator: 150
           learning_rate: 0.1
     outs:
     - path: models
       hash: md5
-      md5: 936f8450338ff5ed0a80485128abba97.dir
-      size: 136736
+      md5: 33abd586d2e227debe6ceea657c2cb45.dir
+      size: 200722
       nfiles: 1
   model_evaluation:
     cmd: python3 src/model_evaluation.py
     deps:
     - path: models
       hash: md5
-      md5: 936f8450338ff5ed0a80485128abba97.dir
-      size: 136736
+      md5: 33abd586d2e227debe6ceea657c2cb45.dir
+      size: 200722
       nfiles: 1
     - path: src/model_evaluation.py
       hash: md5
@@ -95,5 +95,5 @@ stages:
     outs:
     - path: evaluation/metrics.yaml
       hash: md5
-      md5: 995ec70886434345f363859ffb080c24
+      md5: 2bfc7005cd57b184b5fe382b6b5736d5
       size: 120
