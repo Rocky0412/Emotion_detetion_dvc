@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import logging
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 # -----------------------------
@@ -44,10 +45,10 @@ def feature_engineering(path: str):
             raise KeyError("Required columns ('content', 'sentiment') missing in test.csv")
 
         # Vectorizer
-        vectorizer = CountVectorizer(max_features=100)
+        vectorizer = TfidfVectorizer(max_features=100)
         logging.info("Initialized CountVectorizer with max_features=100")
 
-        # Bag-of-Words transformation
+        # TFIDF transformation
         logging.info("Fitting vectorizer on training data...")
         X_train = vectorizer.fit_transform(train_df["content"].fillna("").values)
 
@@ -66,14 +67,14 @@ def feature_engineering(path: str):
         stored_path = os.path.join("data", "features")
         os.makedirs(stored_path, exist_ok=True)
 
-        train_out = os.path.join(stored_path, "train_bow.csv")
-        test_out = os.path.join(stored_path, "test_bow.csv")
+        train_out = os.path.join(stored_path, "train_TFIDF.csv")
+        test_out = os.path.join(stored_path, "test_TFIDF.csv")
 
         X_train.to_csv(train_out, index=False)
         X_test.to_csv(test_out, index=False)
 
-        logging.info(f"Saved BOW train dataset: {train_out}")
-        logging.info(f"Saved BOW test dataset: {test_out}")
+        logging.info(f"Saved TFIDF train dataset: {train_out}")
+        logging.info(f"Saved TFIDF test dataset: {test_out}")
 
         print("Feature engineering completed successfully.")
 

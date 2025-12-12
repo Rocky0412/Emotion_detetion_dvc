@@ -38,7 +38,7 @@ def load_parameters():
         raise
 
 
-def load_training_data(path="./data/features/train_bow.csv"):
+def load_training_data(path="./data/features/train_TFIDF.csv"):
     """Load training CSV with defensive checks."""
     try:
         logging.info(f"Loading training data from: {path}")

@@ -17,3 +17,26 @@
 2025-12-12 15:25:36,730 - INFO - Initializing GradientBoostingClassifier (n_estimators=150, learning_rate=0.1)
 2025-12-12 15:25:37,256 - INFO - Model training completed successfully
 2025-12-12 15:25:37,258 - INFO - Model saved successfully at models/emotion_model.pkl
+2025-12-12 15:51:29,773 - INFO - Model building script started.
+2025-12-12 15:51:29,773 - INFO - Loaded parameters from params.yaml successfully
+2025-12-12 15:51:29,773 - INFO - Loading training data from: ./data/features/train_bow.csv
+2025-12-12 15:51:29,783 - INFO - Loaded training dataframe with 7261 rows
+2025-12-12 15:51:29,783 - INFO - Preparing features and labels
+2025-12-12 15:51:29,783 - INFO - Training dataset: X_shape=(7261, 100), y_length=7261
+2025-12-12 15:51:29,783 - INFO - Initializing GradientBoostingClassifier (n_estimators=150, learning_rate=0.1)
+2025-12-12 15:51:30,250 - INFO - Model training completed successfully
+2025-12-12 15:51:30,251 - INFO - Model saved successfully at models/emotion_model.pkl
+2025-12-12 15:55:33,086 - INFO - Model building script started.
+2025-12-12 15:55:33,086 - INFO - Loaded parameters from params.yaml successfully
+2025-12-12 15:55:33,086 - INFO - Loading training data from: ./data/features/train_bow.csv
+2025-12-12 15:55:33,086 - ERROR - Training file not found: ./data/features/train_bow.csv
+2025-12-12 15:55:33,086 - ERROR - Fatal error in model building pipeline: [Errno 2] No such file or directory: './data/features/train_bow.csv'
+2025-12-12 15:57:59,123 - INFO - Model building script started.
+2025-12-12 15:57:59,123 - INFO - Loaded parameters from params.yaml successfully
+2025-12-12 15:57:59,123 - INFO - Loading training data from: ./data/features/train_TFIDF.csv
+2025-12-12 15:57:59,143 - INFO - Loaded training dataframe with 7261 rows
+2025-12-12 15:57:59,143 - INFO - Preparing features and labels
+2025-12-12 15:57:59,146 - INFO - Training dataset: X_shape=(7261, 100), y_length=7261
+2025-12-12 15:57:59,146 - INFO - Initializing GradientBoostingClassifier (n_estimators=150, learning_rate=0.1)
+2025-12-12 15:57:59,854 - INFO - Model training completed successfully
+2025-12-12 15:57:59,856 - INFO - Model saved successfully at models/emotion_model.pkl

@@ -39,7 +39,7 @@ def load_model(path="./models/emotion_model.pkl"):
         raise
 
 
-def load_test_data(path="./data/features/test_bow.csv"):
+def load_test_data(path="./data/features/test_TFIDF.csv"):
     try:
         logging.info(f"Loading test data from: {path}")
         df = pd.read_csv(path)
