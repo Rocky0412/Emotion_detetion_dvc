@@ -1,4 +1,6 @@
 [core]
-    remote = mystorage
+    remote = dvcstore
 ['remote "mystorage"']
     url = ../Storage
+['remote "dvcstore"']
+    url = s3://dvc-cloud-storage
