@@ -40,3 +40,12 @@
 2025-12-12 15:57:59,146 - INFO - Initializing GradientBoostingClassifier (n_estimators=150, learning_rate=0.1)
 2025-12-12 15:57:59,854 - INFO - Model training completed successfully
 2025-12-12 15:57:59,856 - INFO - Model saved successfully at models/emotion_model.pkl
+2025-12-12 16:10:20,897 - INFO - Model building script started.
+2025-12-12 16:10:20,897 - INFO - Loaded parameters from params.yaml successfully
+2025-12-12 16:10:20,897 - INFO - Loading training data from: ./data/features/train_TFIDF.csv
+2025-12-12 16:10:20,916 - INFO - Loaded training dataframe with 8299 rows
+2025-12-12 16:10:20,916 - INFO - Preparing features and labels
+2025-12-12 16:10:20,918 - INFO - Training dataset: X_shape=(8299, 100), y_length=8299
+2025-12-12 16:10:20,918 - INFO - Initializing GradientBoostingClassifier (n_estimators=150, learning_rate=0.1)
+2025-12-12 16:10:21,738 - INFO - Model training completed successfully
+2025-12-12 16:10:21,739 - INFO - Model saved successfully at models/emotion_model.pkl

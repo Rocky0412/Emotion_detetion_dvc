@@ -37,13 +37,19 @@ def load_data(url: str) -> None:
     try:
         logging.info(f"Starting data download from {url}")
 
-        response = requests.get(url)
+        """response = requests.get(url)
         response.raise_for_status()  # Raise error if downloading fails
         logging.info("Data downloaded successfully")
 
-        data_stream = StringIO(response.text)
-        df = pd.read_csv(data_stream)
+        data_stream = StringIO(response.text)"""
+        df = pd.read_csv(url)
 
+        """ path_url=os.path.join("data","url")
+        os.makedirs(path_url,exist_ok=True)
+        df.to_csv(os.path.join(path_url,"emotion.csv")) """
+
+
+        
         # --------------------------
         # Data Cleaning
         # --------------------------
@@ -107,7 +113,9 @@ def load_data(url: str) -> None:
 
 
 if __name__ == "__main__":
-    DATA_URL = "https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv"
+    DATA_URL = "data/url/emotion.csv"
+    #DATA_URL = "https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv"
+
     load_data(DATA_URL)
 
 

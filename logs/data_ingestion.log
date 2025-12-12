@@ -14,3 +14,71 @@
 2025-12-12 15:51:26,344 - INFO - Split data: train=7261, test=3113
 2025-12-12 15:51:26,353 - INFO - Saved train.csv to data/raw/train.csv
 2025-12-12 15:51:26,353 - INFO - Saved test.csv to data/raw/test.csv
+2025-12-12 16:47:14,889 - INFO - Successfully loaded params.yaml
+2025-12-12 16:47:14,889 - INFO - Starting data download from https://raw.gDithubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 16:47:14,895 - ERROR - Network error while downloading data: HTTPSConnectionPool(host='raw.gdithubusercontent.com', port=443): Max retries exceeded with url: /campusx-official/jupyter-masterclass/main/tweet_emotions.csv (Caused by NameResolutionError("HTTPSConnection(host='raw.gdithubusercontent.com', port=443): Failed to resolve 'raw.gdithubusercontent.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-12-12 16:47:25,816 - INFO - Successfully loaded params.yaml
+2025-12-12 16:47:25,816 - INFO - Starting data download from https://raw.gDithubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 16:47:25,823 - ERROR - Network error while downloading data: HTTPSConnectionPool(host='raw.gdithubusercontent.com', port=443): Max retries exceeded with url: /campusx-official/jupyter-masterclass/main/tweet_emotions.csv (Caused by NameResolutionError("HTTPSConnection(host='raw.gdithubusercontent.com', port=443): Failed to resolve 'raw.gdithubusercontent.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-12-12 16:49:48,313 - INFO - Successfully loaded params.yaml
+2025-12-12 16:49:48,314 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 16:49:49,541 - INFO - Data downloaded successfully
+2025-12-12 16:49:49,594 - ERROR - Unexpected error: [Errno 21] Is a directory: 'data/Url_data/emotion.csv'
+2025-12-12 16:53:08,878 - INFO - Successfully loaded params.yaml
+2025-12-12 16:53:08,878 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 16:53:09,327 - INFO - Data downloaded successfully
+2025-12-12 16:53:09,369 - ERROR - Unexpected error: [Errno 21] Is a directory: 'data/Url_data/emotion.csv'
+2025-12-12 16:58:14,251 - INFO - Successfully loaded params.yaml
+2025-12-12 16:58:14,252 - INFO - Downloading data from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 16:58:14,955 - INFO - Data downloaded successfully
+2025-12-12 16:58:15,009 - ERROR - Data ingestion failed: [Errno 21] Is a directory: 'data/Url_data/emotion.csv'
+2025-12-12 16:59:04,775 - INFO - Successfully loaded params.yaml
+2025-12-12 16:59:04,775 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 16:59:05,257 - INFO - Data downloaded successfully
+2025-12-12 16:59:05,310 - INFO - Dropped 'tweet_id' column
+2025-12-12 16:59:05,312 - INFO - Filtered sentiment classes: 40000 → 10374 rows
+2025-12-12 16:59:05,315 - INFO - Split data: train=8299, test=2075
+2025-12-12 16:59:05,325 - INFO - Saved train.csv to data/raw/train.csv
+2025-12-12 16:59:05,325 - INFO - Saved test.csv to data/raw/test.csv
+2025-12-12 17:05:45,079 - INFO - Successfully loaded params.yaml
+2025-12-12 17:05:45,079 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 17:05:46,303 - INFO - Data downloaded successfully
+2025-12-12 17:05:46,346 - ERROR - Unexpected error: expected str, bytes or os.PathLike object, not NoneType
+2025-12-12 17:06:38,251 - INFO - Successfully loaded params.yaml
+2025-12-12 17:06:38,252 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 17:06:38,720 - INFO - Data downloaded successfully
+2025-12-12 17:06:38,770 - ERROR - Unexpected error: [Errno 17] File exists: 'data/url'
+2025-12-12 17:07:29,378 - INFO - Successfully loaded params.yaml
+2025-12-12 17:07:29,378 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 17:07:29,840 - INFO - Data downloaded successfully
+2025-12-12 17:07:29,888 - INFO - Dropped 'tweet_id' column
+2025-12-12 17:07:29,889 - INFO - Filtered sentiment classes: 40000 → 10374 rows
+2025-12-12 17:07:29,891 - INFO - Split data: train=8299, test=2075
+2025-12-12 17:07:29,901 - INFO - Saved train.csv to data/raw/train.csv
+2025-12-12 17:07:29,901 - INFO - Saved test.csv to data/raw/test.csv
+2025-12-12 17:07:51,189 - INFO - Successfully loaded params.yaml
+2025-12-12 17:07:51,190 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 17:07:51,647 - INFO - Data downloaded successfully
+2025-12-12 17:07:51,737 - INFO - Dropped 'tweet_id' column
+2025-12-12 17:07:51,738 - INFO - Filtered sentiment classes: 40000 → 10374 rows
+2025-12-12 17:07:51,739 - INFO - Split data: train=8299, test=2075
+2025-12-12 17:07:51,746 - INFO - Saved train.csv to data/raw/train.csv
+2025-12-12 17:07:51,746 - INFO - Saved test.csv to data/raw/test.csv
+2025-12-12 17:19:11,452 - INFO - Successfully loaded params.yaml
+2025-12-12 17:19:11,452 - INFO - Starting data download from https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv
+2025-12-12 17:19:12,142 - INFO - Data downloaded successfully
+2025-12-12 17:19:12,184 - INFO - Dropped 'tweet_id' column
+2025-12-12 17:19:12,186 - INFO - Filtered sentiment classes: 40000 → 10374 rows
+2025-12-12 17:19:12,187 - INFO - Split data: train=8299, test=2075
+2025-12-12 17:19:12,196 - INFO - Saved train.csv to data/raw/train.csv
+2025-12-12 17:19:12,196 - INFO - Saved test.csv to data/raw/test.csv
+2025-12-12 17:19:56,469 - INFO - Successfully loaded params.yaml
+2025-12-12 17:19:56,469 - INFO - Starting data download from data/url/emotion.csv
+2025-12-12 17:19:56,469 - ERROR - Network error while downloading data: Invalid URL 'data/url/emotion.csv': No scheme supplied. Perhaps you meant https://data/url/emotion.csv?
+2025-12-12 17:21:00,086 - INFO - Successfully loaded params.yaml
+2025-12-12 17:21:00,086 - INFO - Starting data download from data/url/emotion.csv
+2025-12-12 17:21:00,108 - INFO - Dropped 'tweet_id' column
+2025-12-12 17:21:00,109 - INFO - Filtered sentiment classes: 40000 → 10374 rows
+2025-12-12 17:21:00,110 - INFO - Split data: train=8299, test=2075
+2025-12-12 17:21:00,118 - INFO - Saved train.csv to data/raw/train.csv
+2025-12-12 17:21:00,118 - INFO - Saved test.csv to data/raw/test.csv

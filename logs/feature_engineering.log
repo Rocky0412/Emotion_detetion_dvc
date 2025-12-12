@@ -34,3 +34,21 @@
 2025-12-12 15:55:32,164 - INFO - Transforming test data...
 2025-12-12 15:55:32,329 - INFO - Saved TFIDF train dataset: data/features/train_TFIDF.csv
 2025-12-12 15:55:32,329 - INFO - Saved TFIDF test dataset: data/features/test_TFIDF.csv
+2025-12-12 16:10:19,951 - INFO - Feature engineering script started.
+2025-12-12 16:10:19,952 - INFO - Starting feature engineering on: ./data/processed
+2025-12-12 16:10:19,952 - INFO - Loading train file: ./data/processed/train.csv
+2025-12-12 16:10:19,957 - INFO - Loading test file: ./data/processed/test.csv
+2025-12-12 16:10:19,959 - INFO - Initialized CountVectorizer with max_features=100
+2025-12-12 16:10:19,959 - INFO - Fitting vectorizer on training data...
+2025-12-12 16:10:19,987 - INFO - Transforming test data...
+2025-12-12 16:10:20,147 - INFO - Saved TFIDF train dataset: data/features/train_TFIDF.csv
+2025-12-12 16:10:20,147 - INFO - Saved TFIDF test dataset: data/features/test_TFIDF.csv
+2025-12-12 17:21:02,713 - INFO - Feature engineering script started.
+2025-12-12 17:21:02,713 - INFO - Starting feature engineering on: ./data/processed
+2025-12-12 17:21:02,714 - INFO - Loading train file: ./data/processed/train.csv
+2025-12-12 17:21:02,717 - INFO - Loading test file: ./data/processed/test.csv
+2025-12-12 17:21:02,719 - INFO - Initialized CountVectorizer with max_features=100
+2025-12-12 17:21:02,719 - INFO - Fitting vectorizer on training data...
+2025-12-12 17:21:02,747 - INFO - Transforming test data...
+2025-12-12 17:21:02,908 - INFO - Saved TFIDF train dataset: data/features/train_TFIDF.csv
+2025-12-12 17:21:02,908 - INFO - Saved TFIDF test dataset: data/features/test_TFIDF.csv
