@@ -2,5 +2,5 @@
 /Data Storage
 /data
 /data/url
-/url_data
+/url_data/*.csv
 
