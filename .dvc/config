@@ -1,1 +1,4 @@
-
+[core]
+    remote = localstorage
+['remote "localstorage"']
+    url = ../Local Storage

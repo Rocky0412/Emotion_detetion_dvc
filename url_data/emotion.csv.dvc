@@ -1,0 +1,5 @@
+outs:
+- md5: ec62cc1e9152c3ebdbdbb83b15475567
+  size: 3957099
+  hash: md5
+  path: emotion.csv
