@@ -14,3 +14,4 @@ models/
 
 # DVC cache (optional)
 .cache/
+/models
